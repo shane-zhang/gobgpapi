@@ -1,0 +1,33 @@
+swagger: "2.0"
+info:
+  description: Use swagger to control GoBGP
+  version: "1.0.0"
+  title: GoBGP API in connxion fashion
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+paths:
+ /path:
+    get:
+      operationId: "path.read"
+      tags:
+        - "People"
+      summary: "The people data structure supported by the server application"
+      description: "Read the list of people"
+      responses:
+        200:
+          description: "Successful read people list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                fname:
+                  type: "string"
+                lname:
+                  type: "string"
+                timestamp:
+                  type: "string"

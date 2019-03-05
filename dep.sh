@@ -1,1 +1,1 @@
-sudo pip install flask connexion
+sudo pip install flask connexion connexion[swagger-ui]
