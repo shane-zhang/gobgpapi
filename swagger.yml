@@ -15,7 +15,7 @@ paths:
     get:
       operationId: "path.read"
       tags:
-        - "People"
+        - "GoBGP"
       summary: "The people data structure supported by the server application"
       description: "Read the list of people"
       responses:
