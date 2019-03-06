@@ -3,6 +3,7 @@ from __future__ import print_function
 
 
 from datetime import datetime
+import subprocess
 
 
 def get_timestamp():
@@ -85,6 +86,27 @@ def read():
     :return:        sorted list of people
     """
     # Create the list of people from our data
-    AddPath()
-    return [PEOPLE[key] for key in sorted(PEOPLE.keys())]
+    rst = subprocess.check_output("gobgp g r", shell= True)
+
+    return rst
+def create(str_para):
+    """
+    This function responds to a request for /api/people
+    with the complete lists of people
+
+    :return:        sorted list of people
+    """
+    print (str_para)
+    rst = subprocess.check_output("gobgp global rib add "+ str_para["para"], shell= True)
+    return rst
+def delete(str_para):
+    """
+    This function responds to a request for /api/people
+    with the complete lists of people
+
+    :return:        sorted list of people
+    """
+    print (str_para)
+    rst = subprocess.check_output("gobgp global rib del "+ str_para["para"], shell= True)
+    return rst
 

@@ -26,8 +26,49 @@ paths:
             items:
               properties:
                 fname:
-                  type: "string"
+                  type: string
                 lname:
-                  type: "string"
+                  type: string
                 timestamp:
-                  type: "string"
+                  type: string
+    post:
+      operationId: path.create
+      tags:
+        - GoBGP
+      summary: Create a person and add it to the people list
+      description: Create a new person in the people list
+      parameters:
+        - name: str_para
+          in: body
+          description: Person to create
+          required: True
+          schema:
+            type: object
+            properties:
+              para:
+                type: string
+                description: The properity of the path
+      responses:
+        201:
+          description: Successfully created person in list
+    put:
+      operationId: path.delete
+      tags:
+        - GoBGP
+      summary: Delete a person and add it to the people list
+      description: Delete a new person in the people list
+      parameters:
+        - name: str_para
+          in: body 
+          description: Path to delete
+          required: True
+          schema:
+            type: object
+            properties:
+              para:
+                type: string
+                description: The properity of the path
+      responses:
+        200:
+          description: Successfully delete path in rib
+
