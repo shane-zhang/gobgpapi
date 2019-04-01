@@ -11,16 +11,16 @@ produces:
 basePath: "/api"
 
 paths:
- /path:
+ /RIB:
     get:
-      operationId: "path.read"
+      operationId: path.read
       tags:
-        - "GoBGP"
-      summary: "The people data structure supported by the server application"
-      description: "Read the list of people"
+        - GoBGP
+      summary: List all BGP information in RIB
+      description: Read the list of RIB
       responses:
         200:
-          description: "Successful read people list operation"
+          description: "Successful RIB list operation"
           schema:
             type: "array"
             items:
@@ -35,12 +35,12 @@ paths:
       operationId: path.create
       tags:
         - GoBGP
-      summary: Create a person and add it to the people list
-      description: Create a new person in the people list
+      summary: Insert a BGP information in RIB
+      description: Create a new BGP
       parameters:
         - name: str_para
           in: body
-          description: Person to create
+          description: BGP information to create
           required: True
           schema:
             type: object
@@ -50,13 +50,13 @@ paths:
                 description: The properity of the path
       responses:
         201:
-          description: Successfully created person in list
+          description: Successfully created BGP in list
     put:
       operationId: path.delete
       tags:
         - GoBGP
-      summary: Delete a person and add it to the people list
-      description: Delete a new person in the people list
+      summary: Delete a BGP information in RIB
+      description: Delete a BGP in RIB
       parameters:
         - name: str_para
           in: body 
@@ -70,5 +70,5 @@ paths:
                 description: The properity of the path
       responses:
         200:
-          description: Successfully delete path in rib
+          description: Successfully delete path in RIB
 
