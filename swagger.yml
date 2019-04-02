@@ -11,28 +11,22 @@ produces:
 basePath: "/api"
 
 paths:
- /RIB:
+  /route:
     get:
-      operationId: path.read
+      operationId: route.read
       tags:
         - GoBGP
       summary: List all BGP information in RIB
       description: Read the list of RIB
+      produces:
+        - text/plain
       responses:
         200:
           description: "Successful RIB list operation"
           schema:
-            type: "array"
-            items:
-              properties:
-                fname:
-                  type: string
-                lname:
-                  type: string
-                timestamp:
-                  type: string
+            type: string
     post:
-      operationId: path.create
+      operationId: route.create
       tags:
         - GoBGP
       summary: Insert a BGP information in RIB
@@ -47,12 +41,12 @@ paths:
             properties:
               para:
                 type: string
-                description: The properity of the path
+                description: The properity of the route
       responses:
-        201:
+        200:
           description: Successfully created BGP in list
     put:
-      operationId: path.delete
+      operationId: route.delete
       tags:
         - GoBGP
       summary: Delete a BGP information in RIB
@@ -67,8 +61,61 @@ paths:
             properties:
               para:
                 type: string
-                description: The properity of the path
+                description: The properity of the route
       responses:
         200:
-          description: Successfully delete path in RIB
-
+          description: Successfully delete route in RIB
+  /neighbor:
+    get:
+      operationId: neighbor.read
+      tags:
+        - GoBGP
+      summary: List all BGP information in RIB
+      description: Read the list of RIB
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: "Successful RIB list operation"
+          schema:
+            type: string
+    post:
+      operationId: neighbor.create
+      tags:
+        - GoBGP
+      summary: Insert a BGP information in RIB
+      description: Create a new BGP
+      parameters:
+        - name: str_para
+          in: body
+          description: BGP information to create
+          required: True
+          schema:
+            type: object
+            properties:
+              para:
+                type: string
+                description: The properity of the neighbor
+      responses:
+        200:
+          description: Successfully created BGP in list
+    put:
+      operationId: neighbor.delete
+      tags:
+        - GoBGP
+      summary: Delete a BGP information in RIB
+      description: Delete a BGP in RIB
+      parameters:
+        - name: str_para
+          in: body
+          description: Path to delete
+          required: True
+          schema:
+            type: object
+            properties:
+              para:
+                type: string
+                description: The properity of the neighbor
+      responses:
+        200:
+          description: Successfully delete neighbor
