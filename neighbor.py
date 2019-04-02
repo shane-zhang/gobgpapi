@@ -22,7 +22,7 @@ def create(str_para):
     :return:        sorted list of people
     """
     print (str_para)
-    rst = subprocess.check_output("gobgp global rib add "+ str_para["para"], shell= True)
+    rst = subprocess.check_output("gobgp neighbor add "+ str_para["para"], shell= True)
     return rst
 def delete(str_para):
     """
@@ -31,5 +31,5 @@ def delete(str_para):
     :return:        sorted list of people
     """
     print (str_para)
-    rst = subprocess.check_output("gobgp global rib del "+ str_para["para"], shell= True)
+    rst = subprocess.check_output("gobgp neighbor del "+ str_para["para"], shell= True)
     return rst
