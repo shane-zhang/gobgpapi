@@ -42,6 +42,7 @@ paths:
               para:
                 type: string
                 description: The properity of the route
+                example: "10.10.13.0/24"
       responses:
         200:
           description: Successfully created BGP in list
@@ -62,6 +63,7 @@ paths:
               para:
                 type: string
                 description: The properity of the route
+                example: "10.10.13.0/24"
       responses:
         200:
           description: Successfully delete route in RIB
@@ -96,6 +98,7 @@ paths:
               para:
                 type: string
                 description: The properity of the neighbor
+                example: "10.10.15.2 as 65500"
       responses:
         200:
           description: Successfully created BGP in list
@@ -116,6 +119,7 @@ paths:
               para:
                 type: string
                 description: The properity of the neighbor
+                example: "10.10.15.2"
       responses:
         200:
           description: Successfully delete neighbor
