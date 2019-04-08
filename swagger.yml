@@ -25,6 +25,8 @@ paths:
           description: "Successful RIB list operation"
           schema:
             type: string
+      security:
+        - basic: []
     post:
       operationId: route.create
       tags:
@@ -46,6 +48,8 @@ paths:
       responses:
         200:
           description: Successfully created BGP in list
+      security:
+        - basic: []
     put:
       operationId: route.delete
       tags:
@@ -67,6 +71,8 @@ paths:
       responses:
         200:
           description: Successfully delete route in RIB
+      security:
+        - basic: []
   /neighbor:
     get:
       operationId: neighbor.read
@@ -81,6 +87,8 @@ paths:
           description: "Successful RIB list operation"
           schema:
             type: string
+      security:
+        - basic: []
     post:
       operationId: neighbor.create
       tags:
@@ -102,6 +110,8 @@ paths:
       responses:
         200:
           description: Successfully created BGP in list
+      security:
+        - basic: []
     put:
       operationId: neighbor.delete
       tags:
@@ -123,3 +133,9 @@ paths:
       responses:
         200:
           description: Successfully delete neighbor
+      security:
+        - basic: []
+securityDefinitions:
+  basic:
+    type: basic
+    x-basicInfoFunc: server.basic_auth
