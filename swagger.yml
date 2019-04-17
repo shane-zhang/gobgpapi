@@ -135,6 +135,52 @@ paths:
           description: Successfully delete neighbor
       security:
         - basic: []
+  /pinger:
+    get:
+      operationId: pinger.read
+      tags:
+        - NetPager
+      summary: Boot the NetPager to ping the hosts in the list
+      description: Start to ping
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: "Start to ping"
+          schema:
+            type: string
+      security:
+        - basic: []
+    post:
+      operationId: pinger.create
+      tags:
+        - NetPager
+      summary: Upload the hosts list
+      description: Upload the hosts list
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: upload_file
+          in: formData
+          type: file
+          description: The file contain all the hosts in each line
+          required: True
+      responses:
+        200:
+          description: Successfully upload the file
+      security:
+        - basic: []
+    put:
+      operationId: pinger.delete
+      tags:
+        - NetPager
+      summary: Stop the NetPager
+      description: Stop the NetPager
+      responses:
+        200:
+          description: Stop the NetPager
+      security:
+        - basic: []
 securityDefinitions:
   basic:
     type: basic
